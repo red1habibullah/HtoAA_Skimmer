@@ -1,0 +1,1 @@
+betterDAS.py dataset --primaryDatasets "SingleElectron" "SinglePhoton" "SingleMuon" "MuonEG" "DoubleMuon" "DoubleEG" "Tau" --dataTiers "MINIAOD" --acquisitionEras "Run2017*" --processNames "*17Nov2017*" > datasetList_Data_new.txt

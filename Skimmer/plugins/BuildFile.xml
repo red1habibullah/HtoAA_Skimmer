@@ -1,0 +1,20 @@
+<library file="*.cc" name="MiniNtuplizerPlugins">
+<flags EDM_PLUGIN="1"/>
+<use name="FWCore/Framework"/>
+<use name="FWCore/PluginManager"/>
+<use name="FWCore/ParameterSet"/>
+<use name="FWCore/ServiceRegistry"/>
+<use name="CommonTools/Utils"/>
+<use name="CommonTools/UtilAlgos"/>
+<use name="PhysicsTools/Utilities"/>
+<use name="PhysicsTools/PatAlgos"/>
+<use name="DataFormats/PatCandidates" />
+<use name="RecoEgamma/EgammaTools" />
+<use name="RecoEgamma/ElectronIdentification" />
+<use name="RecoEgamma/EgammaElectronAlgos"/>
+<use name="RecoEgamma/EgammaIsolationAlgos"/>
+<use name="DataFormats/EgammaCandidates"/>
+<use name="PhysicsTools/PatUtils"/>
+<use name="DataFormats/ParticleFlowCandidate"/>
+<!--<use name="SkimTools/Skimmer"/> -->
+</library>

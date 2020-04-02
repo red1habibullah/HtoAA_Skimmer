@@ -143,8 +143,8 @@ if not options.isMC:
 #https://twiki.cern.ch/twiki/bin/viewauth/CMS/PdmVAnalysisSummaryTable
 envvar = 'mcgt' if options.isMC else 'datagt'
 from Configuration.AlCa.GlobalTag import GlobalTag
-#GT = {'mcgt': '94X_mc2017_realistic_v17', 'datagt': '94X_dataRun2_v11',} #2017
-GT = {'mcgt': '102X_upgrade2018_realistic_v15', 'datagt': '102X_dataRun2_v12',} #2018 A-C #102x_upgrade2018_realistic_v20 not working?
+GT = {'mcgt': '94X_mc2017_realistic_v17', 'datagt': '94X_dataRun2_v11',} #2017
+#GT = {'mcgt': '102X_upgrade2018_realistic_v15', 'datagt': '102X_dataRun2_v12',} #2018 A-C #102x_upgrade2018_realistic_v20 not working?
 #GT = {'mcgt': '102X_upgrade2018_realistic_v20', 'datagt': '102X_dataRun2_Prompt_v15',} #2018 D 
 process.GlobalTag = GlobalTag(process.GlobalTag, GT[envvar], '')
 

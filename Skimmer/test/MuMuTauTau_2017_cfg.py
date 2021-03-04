@@ -8,11 +8,11 @@ import FWCore.ParameterSet.Config as cms
 
 from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing('analysis')
-options.outputFile = 'mumutautau_MultipleID.root'
+options.outputFile = 'mumutautau_MultipleID_2017.root'
 options.inputFiles = '/store/mc/RunIIFall17DRPremix/SUSYGluGluToHToAA_AToMuMu_AToTauTau_M-125_M-9_TuneCUETP8M1_13TeV_madgraph_pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v2/40000/02CF836E-AB60-E811-A5A7-1866DA85DC7F.root' #'/store/mc/RunIIFall17DRPremix/SUSYGluGluToHToAA_AToMuMu_AToTauTau_M-125_M-14_TuneCUETP8M1_13TeV_madgraph_pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v3/50000/82E6529B-C2AB-E811-A417-0025905A60D0.root'
 #'/store/mc/RunIIFall17DRPremix/SUSYGluGluToHToAA_AToMuMu_AToTauTau_M-125_M-20_TuneCUETP8M1_13TeV_madgraph_pythia8/AODSIM/PU2017_94X_mc2017_realistic_v11-v1/00000/20DCBC63-CD62-E811-95C7-00248C55CC3C.root'
-options.maxEvents =500
-options.register('skipEvents',1, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Events to skip")
+options.maxEvents =-1
+options.register('skipEvents',0, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Events to skip")
 options.register('reportEvery', 10, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Report every")
 options.register('isMC', 1, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Sample is MC")
 options.register('numThreads', 8, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Set number of threads")
@@ -218,5 +218,5 @@ from HtoAA_Skimmer.Skimmer.customizeSkimsNew import addMuMuTauTau
 addMuMuTauTau(process,options)
 
 
-dump_file = open('dump_config_All.py','w')
-dump_file.write(process.dumpPython())
+# dump_file = open('dump_config_All.py','w')
+# dump_file.write(process.dumpPython())

@@ -104,32 +104,10 @@ def addMuMuTauTau(process,options,**kwargs):
         for attr in attrsToDelete:
             if hasattr(process,attr): delattr(process,attr)
     
-    #Adding tauID
-    # updatedTauName = "slimmedTausNewIDMuonCleaned"
-    # import HtoAA_Skimmer.Skimmer.runTauIdMVA as tauIdConfig
-    
-    # tauIdEmbedderMuonCleaned = tauIdConfig.TauIDEmbedder(process, cms, debug = True,
-    #                                                      updatedTauName = updatedTauName,
-    #                                                      tauSrc = 'slimmedTausMuonCleaned',
-    #                                                      toKeep = ["2017v2",  #MVA TauID
-    #                                                                "deepTau2017v2p1", #deepTau TauIDs
-    #                                                      ])
-    # tauIdEmbedderMuonCleaned.runTauID() 
-    
-    # process.tauIdMuonCleaned = cms.Task(
-    #     process.rerunMvaIsolationTaskMuonCleaned,
-    #     process.slimmedTausNewIDMuonCleaned,
-    # )
-    
-    
-    # patAlgosToolsTask.add(process.tauIdMuonCleaned)
     ########## Medium ##############
     process.recoMuonsForJetCleaningMedium = cms.EDFilter('MuonRefSelector',
-                                                   src = cms.InputTag('muons'),
-                                                   #cut = cms.string('pt > 3.0 && isPFMuon && (isGlobalMuon || isTrackerMuon)'),
-                                                   #cut = cms.string('pt > 3.0 && selectors(reco::Muon::CutBasedIdMedium)'),
-                                                   #cut = cms.string('pt > 3.0 && CutBasedIdMedium'),
-                                                   cut = cms.string('pt > 3.0 && passed("CutBasedIdMedium")'), 
+                                                         src = cms.InputTag('muons'),
+                                                         cut = cms.string('pt > 3.0 && passed("CutBasedIdMedium")'), 
                                                    )
     process.ak4PFJetsMuonCleanedMedium = cms.EDProducer(
         'MuonCleanedJetProducer',
@@ -294,27 +272,7 @@ def addMuMuTauTau(process,options,**kwargs):
         attrsToDelete += ['tauGenJetsElectronCleaned'+postfix]
         attrsToDelete += ['tauGenJetsSelectorAllHadronsElectronCleaned'+postfix]
         for attr in attrsToDelete:
-            if hasattr(process,attr): delattr(process,attr)
-
-    # add tauID
-    # updatedTauName = "slimmedTausNewIDElectronCleaned"
-    # #import RecoTauTag.RecoTau.tools.runTauIdMVA as tauIdConfig
-    # import HtoAA_Skimmer.Skimmer.runTauIdMVA as tauIdConfig
-    # tauIdEmbedderElectronCleaned = tauIdConfig.TauIDEmbedder(process, cms, debug = True,
-    #                                                      updatedTauName = updatedTauName,
-    #                                                      tauSrc = 'slimmedTausElectronCleaned',
-    #                                                      toKeep = ["2017v2",
-    #                                                                "deepTau2017v2p1", #deepTau TauIDs
-    #                                                      ])
-    # tauIdEmbedderElectronCleaned.runTauID()
-    
-    # process.tauIdElectronCleaned = cms.Task(
-    #     process.rerunMvaIsolationTaskElectronCleaned,
-    #     process.slimmedTausNewIDElectronCleaned,
-    # )
-
-    # patAlgosToolsTask.add(process.tauIdElectronCleaned)
-            
+            if hasattr(process,attr): delattr(process,attr)            
     ########## Medium ############
             
     process.recoElectronsForJetCleaningMedium = cms.EDFilter('ElectronFilterMedium',

@@ -14,7 +14,7 @@ options.maxEvents = -1
 options.register('skipEvents',0, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Events to skip")
 options.register('reportEvery', 2, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Report every")
 options.register('isMC', 1, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Sample is MC")
-options.register('numThreads', 8, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Set number of threads")
+options.register('numThreads', 4, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Set number of threads")
 
 
 options.parseArguments()
@@ -224,6 +224,3 @@ process = customiseEarlyDelete(process)
 from HtoAA_Skimmer.Skimmer.customizeSkimsUL import addMuMuTauTau
 addMuMuTauTau(process,options)
 
-
-dump_file = open('dump_config_UL_2018.py','w')
-dump_file.write(process.dumpPython())

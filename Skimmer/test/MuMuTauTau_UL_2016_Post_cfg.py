@@ -10,11 +10,11 @@ from FWCore.ParameterSet.VarParsing import VarParsing
 options = VarParsing('analysis')
 options.outputFile = 'mumutautau_UL_2016_Post.root'
 options.inputFiles = 'file:/afs/cern.ch/work/r/rhabibul/UL-Samples/2017/ggh01_M125_Toa01a01_M10_Tomumutautau_slc7_amd64_gcc700_CMSSW_10_6_19_tarball_35247313_10_recoAOD.root' 
-options.maxEvents = 10
+options.maxEvents = -1
 options.register('skipEvents',0, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Events to skip")
 options.register('reportEvery', 1, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Report every")
 options.register('isMC', 1, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Sample is MC")
-options.register('numThreads', 8, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Set number of threads")
+options.register('numThreads', 4, VarParsing.multiplicity.singleton, VarParsing.varType.int, "Set number of threads")
 
 
 options.parseArguments()
@@ -217,5 +217,3 @@ from HtoAA_Skimmer.Skimmer.customizeSkimsUL import addMuMuTauTau
 addMuMuTauTau(process,options)
 
 
-dump_file = open('dump_config_UL_2016_Post.py','w')
-dump_file.write(process.dumpPython())
